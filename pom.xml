@@ -1,0 +1,42 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <parent>
+    <groupId>cn.henu</groupId>
+    <artifactId>et-parent</artifactId>
+    <version>0.0.1-SNAPSHOT</version>
+  </parent>
+  <artifactId>et-manager</artifactId>
+  <packaging>pom</packaging>
+  <dependencies>
+  		<dependency>
+  			 <groupId>cn.henu</groupId>
+    		 <artifactId>et-common</artifactId>
+   			 <version>0.0.1-SNAPSHOT</version>
+  		</dependency>
+  </dependencies>
+  <modules>
+  	<module>et-manager-pojo</module>
+  	<module>et-manager-service</module>
+  	<module>et-manager-dao</module>
+  	<module>et-manager-interface</module>
+  	<!-- <module>et-manager-web</module> -->
+  </modules>
+  <!-- 配置tomcat插件 -->
+  <build>
+  		<plugins>
+  			<plugin>
+				<groupId>org.apache.tomcat.maven</groupId>
+				<artifactId>tomcat7-maven-plugin</artifactId>
+				<configuration>
+				<!-- 虚拟目录也就是工程名 -->
+					<path>/</path>
+					<!-- /代表吧war包部署到Tomcat的ROOT目录下 -->
+					<port>8080</port>
+					<url>http://192.168.25.130:8080/manager/text</url>
+					<username>tomcat</username>
+					<password>tomcat</password>
+				</configuration>
+			</plugin>
+  		</plugins>
+  </build>
+</project>
